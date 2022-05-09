@@ -12,6 +12,7 @@ export function UserDetail(props) {
     const [userData, setuserData] = useState([]);
 
 
+
     
     useEffect(() => {
 
@@ -28,19 +29,22 @@ export function UserDetail(props) {
 
   return (
     <View style={styles.container}>
-       <FlatList
-                  data={userData
-                    }
-                  renderItem={({ item }) => (
-                    <>
-                    <TouchableHighlight onPress={()=> props.navigation.navigate() }>
-                      <View style={styles.row}>
-                        <Text>{item.name}</Text>
-                      </View>
-                      </TouchableHighlight>
-                    </>
-                  )}
-                />
+      <Text>ID:{userData.id}</Text>
+      <Text>Name:{userData.name}</Text>
+      <Text>Username:{userData.username}</Text>
+      <Text>Street:{userData.address.street}</Text>
+      <Text>Suite:{userData.address.suite}</Text>
+      <Text>City:{userData.address.city}</Text>
+      <Text>Zipcode:{userData.address.zipcode}</Text>
+      <Text>Lat:{userData.address.geo.lat}</Text>
+      <Text>Lng:{userData.address.geo.lng}</Text>
+      <Text>Phone:{userData.phone}</Text>
+      <Text>Website:{userData.website}</Text>
+      <Text>Company Name:{userData.company.name}</Text>
+      <Text>Catch Phrase:{userData.company.catchPhrase}</Text>
+      <Text>BS:{userData.company.bs}</Text>
+      
+
       <StatusBar style="auto" />
     </View>
   );
