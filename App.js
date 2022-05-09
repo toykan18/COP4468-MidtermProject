@@ -4,6 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { Home } from "./src/Home.js";
 import {UserDetail} from "./src/UserDetail.js";
+import {PostList} from "./src/PostList.js";
 
 
 const Stack = createStackNavigator();
@@ -13,7 +14,7 @@ export default function App(props) {
     <>
       <NavigationContainer>
         <Stack.Navigator
-          initialRouteName="Home"
+          initialRouteName="PostList"
           headerMode={{
             headerShown: false,
           }}
@@ -22,6 +23,7 @@ export default function App(props) {
             <>
               <Stack.Screen name="Home" component={Home} />
               <Stack.Screen name="UserDetail" component={UserDetail} />
+              <Stack.Screen name="PostList" component={PostList} />
             </>
           
         </Stack.Navigator>
