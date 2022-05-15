@@ -1,7 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, View, FlatList, TouchableHighlight} from 'react-native';
-import { TouchableOpacity } from 'react-native-web';
+import { StyleSheet, Text, View, FlatList, TouchableHighlight,SafeAreaView,Button} from 'react-native';
 
 
 
@@ -29,29 +28,57 @@ export function PostList(props) {
     }, [])
 
   return (
-    <View style={styles.container}>
-        
+    <SafeAreaView style={styles.container}>
+        <View style={styles.listContainer}>
      {postData.map((item, key)=>{
         if (key < 20) {
-            return (<TouchableHighlight onPress={()=> props.navigation.navigate("PostDetail", {userid:item.id})}>
-                <Text>{item.title}</Text> 
+            return (<TouchableHighlight key={key} onPress={()=> props.navigation.navigate("PostDetail", {postid:item.id})}>
+                <Text style={styles.font}>{item.title}</Text> 
             </TouchableHighlight>)
+            
         }
         
-        
      })}
-     
-
+     <View style={styles.buttonContainer}>
+        <Button onPress={()=> props.navigation.navigate("Home")} title="See User List" color={"black"}></Button>
+        </View>
+        </View>
       <StatusBar style="auto" />
-    </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: 'flex-start',
+    justifyContent: 'flex-start',
+    backgroundColor:"#51a871",
+  },
+  buttonContainer:{
+    justifyContent:"center",
+    alignItems:"center",
+    backgroundColor:"green",
+    height:70,
+    width:200,
+    marginTop:50,
+   marginLeft:100,
+   borderRadius:10,
+   
+  },
+  listContainer: {
+    display:"flex",
+    marginTop:30,
+    height:600,
+    width:415,
+    
+    
+  },
+  font:{
+  fontWeight:'bold',
+  margin:1,
+  borderWidth:2,
+  
+
   },
 });

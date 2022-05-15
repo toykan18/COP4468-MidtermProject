@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, View, FlatList, TouchableHighlight} from 'react-native';
+import { StyleSheet, Text, View, FlatList, TouchableHighlight,SafeAreaView,Button} from 'react-native';
+
 
 
 
@@ -12,6 +13,7 @@ export function Home(props) {
 
     const [userData, setuserData] = useState([]);
 
+    
 
     
     useEffect(() => {
@@ -28,7 +30,8 @@ export function Home(props) {
     }, [])
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
+      <View style={styles.listContainer}>
        <FlatList
                   data={userData
                     }
@@ -36,22 +39,54 @@ export function Home(props) {
                     <>
                     <TouchableHighlight onPress={()=> props.navigation.navigate("UserDetail", {userid:item.id})}>
                       <View style={styles.row}>
-                        <Text>{item.name}</Text>
+                        <Text style={styles.font}>{item.name}</Text>
                       </View>
                       </TouchableHighlight>
+                      
                     </>
                   )}
+                  
                 />
+                <View style={styles.buttonContainer}>
+                <Button onPress={()=> props.navigation.navigate("PostList")} title="See Post List" color={"black"}></Button>
+                </View>
+                </View>
       <StatusBar style="auto" />
-    </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor:"#51a871",
+    alignItems: 'flex-start',
+    justifyContent: 'flex-start',
+    
   },
+  listContainer: {
+    display:"flex",
+    marginTop:30,
+    height:600,
+    width:415,
+    
+    
+  },
+  font:{
+  fontWeight:'bold',
+  margin:5,
+  borderWidth:5,
+  
+
+  },
+ buttonContainer:{
+   justifyContent:"center",
+   alignItems:"center",
+   backgroundColor:"green",
+   height:70,
+   width:200,
+  marginLeft:100,
+  borderRadius:10,
+ }
+  
 });

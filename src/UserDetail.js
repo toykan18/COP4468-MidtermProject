@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, View, FlatList, TouchableHighlight} from 'react-native';
+import { StyleSheet, Text, View, FlatList, TouchableHighlight,SafeAreaView} from 'react-native';
+
 
 
 
@@ -12,7 +13,7 @@ export function UserDetail(props) {
     const [userData, setuserData] = useState([]);
 
 
-
+    
     
     useEffect(() => {
 
@@ -21,32 +22,32 @@ export function UserDetail(props) {
             .then((data) => {
 
                 setuserData(data);
-                console.log(data);
+                
 
             })
 
     }, [])
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Text>ID:{userData.id}</Text>
       <Text>Name:{userData.name}</Text>
       <Text>Username:{userData.username}</Text>
-      <Text>Street:{userData.address.street}</Text>
-      <Text>Suite:{userData.address.suite}</Text>
-      <Text>City:{userData.address.city}</Text>
-      <Text>Zipcode:{userData.address.zipcode}</Text>
-      <Text>Lat:{userData.address.geo.lat}</Text>
-      <Text>Lng:{userData.address.geo.lng}</Text>
+      <Text>Street:{userData.address?.street}</Text>
+      <Text>Suite:{userData.address?.suite}</Text>
+      <Text>City:{userData.address?.city}</Text>
+      <Text>Zipcode:{userData.address?.zipcode}</Text>
+      <Text>Lat:{userData.address?.geo.lat}</Text>
+      <Text>Lng:{userData.address?.geo.lng}</Text>
       <Text>Phone:{userData.phone}</Text>
       <Text>Website:{userData.website}</Text>
-      <Text>Company Name:{userData.company.name}</Text>
-      <Text>Catch Phrase:{userData.company.catchPhrase}</Text>
-      <Text>BS:{userData.company.bs}</Text>
+      <Text>Company Name:{userData.company?.name}</Text>
+      <Text>Catch Phrase:{userData.company?.catchPhrase}</Text>
+      <Text>BS:{userData.company?.bs}</Text>
       
 
       <StatusBar style="auto" />
-    </View>
+    </SafeAreaView>
   );
 }
 
