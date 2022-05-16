@@ -21,7 +21,7 @@ export function PostList(props) {
             .then((data) => {
 
                 setPostData(data);
-                console.log(data);
+                
 
             })
 
@@ -53,12 +53,12 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
-    backgroundColor:"#51a871",
+    backgroundColor:"#FAF597",
   },
   buttonContainer:{
     justifyContent:"center",
     alignItems:"center",
-    backgroundColor:"green",
+    backgroundColor:"#2B84F0",
     height:70,
     width:200,
     marginTop:50,
@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
   font:{
   fontWeight:'bold',
   margin:1,
-  borderWidth:2,
+  borderWidth:3,
   
 
   },

@@ -59,7 +59,7 @@ export function Home(props) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor:"#51a871",
+    backgroundColor:"#FAF597",
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
     
@@ -75,14 +75,14 @@ const styles = StyleSheet.create({
   font:{
   fontWeight:'bold',
   margin:5,
-  borderWidth:5,
+  borderWidth:3,
   
 
   },
  buttonContainer:{
    justifyContent:"center",
    alignItems:"center",
-   backgroundColor:"green",
+   backgroundColor:"#2B84F0",
    height:70,
    width:200,
   marginLeft:100,

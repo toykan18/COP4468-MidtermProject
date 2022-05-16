@@ -1,8 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, View, FlatList, TouchableHighlight,SafeAreaView} from 'react-native';
+import { StyleSheet, Text, View, FlatList, TouchableHighlight,SafeAreaView,Dimensions} from 'react-native';
 
-
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
 
 export function PostDetail(props) {
   
@@ -29,11 +30,17 @@ export function PostDetail(props) {
 
   return (
     <SafeAreaView style={styles.container}>
+      <View style={styles.header}>
+      </View>
+      <View style={styles.body}>
+        
+        <Text style={styles.title}>Title:{postData.title}</Text>
+        <Text>Body:{postData.body}</Text>
         <Text>User ID:{postData.userId}</Text>
         <Text>ID:{postData.id}</Text>
-        <Text>Title:{postData.title}</Text>
-        <Text>Body:{postData.body}</Text>
-     
+        </View>
+        <View style={styles.footer}>
+      </View>
 
       <StatusBar style="auto" />
     </SafeAreaView>
@@ -43,8 +50,28 @@ export function PostDetail(props) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#FAF597',
+    width: windowWidth,
+    height: windowHeight,
+    
+    
+  },
+  title:{
+    fontWeight:"bold",
+    fontSize: 20,
+    marginBottom:30,
+    
+  },
+  header:{
+    height: (windowHeight * 5) / 100,
+  },
+  
+  body:{
+    height: (windowHeight * 90) / 100,
+    alignItems:"center",
+    justifyContent:"flex-start",
+  },
+  footer:{
+    height: (windowHeight * 5) / 100,
   },
 });
