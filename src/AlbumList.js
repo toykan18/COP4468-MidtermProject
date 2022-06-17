@@ -1,16 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useEffect, useState } from 'react';
-import reactDom from 'react-dom';
 import { StyleSheet, Text, View, FlatList, TouchableHighlight,SafeAreaView,Button} from 'react-native';
 
 
 
 
 
-export function Home(props) {
+export function AlbumList(props) {
   
 
-    const apiURL = 'https://jsonplaceholder.typicode.com/users';
+    const apiURL = 'https://jsonplaceholder.typicode.com/albums';
 
     const [userData, setuserData] = useState([]);
 
@@ -38,9 +37,9 @@ export function Home(props) {
                     }
                   renderItem={({ item }) => (
                     <>
-                    <TouchableHighlight onPress={()=> props.navigation.navigate("UserDetail", {userid:item.id})}>
+                    <TouchableHighlight onPress={()=> props.navigation.navigate("PhotoList", {photoid:item.id})}>
                       <View style={styles.row}>
-                        <Text style={styles.font}>{item.name}</Text>
+                        <Text style={styles.font}>{item.title}</Text>
                       </View>
                       </TouchableHighlight>
                       
@@ -48,15 +47,16 @@ export function Home(props) {
                   )}
                   
                 />
+                </View>
                 <View style={styles.footer}>
                 <View style={styles.buttonContainer}>
                 <Button onPress={()=> props.navigation.navigate("PostList")} title="See Post List" color={"black"}></Button>
                 </View>
                 <View style={styles.buttonContainer}>
-                <Button onPress={()=> props.navigation.navigate("AlbumList")} title="See Album List" color={"black"}></Button>
+                <Button onPress={()=> props.navigation.navigate("Home")} title="See User List" color={"black"}></Button>
                 </View>
                 </View>
-                </View>
+                
       <StatusBar style="auto" />
     </SafeAreaView>
   );
@@ -85,21 +85,22 @@ const styles = StyleSheet.create({
   
 
   },
- buttonContainer:{
-  justifyContent:"center",
-   alignItems:"center",
-   backgroundColor:"#2B84F0",
-   width:200,
-  marginLeft:5,
-  borderRadius:10,
-  
- },
- footer:{
-  flex:1,
-  flexDirection:"row",
-  justifyContent:"flex-start",
-  alignItems:'center',
-  
- }
+  buttonContainer:{
+    justifyContent:"center",
+     alignItems:"center",
+     backgroundColor:"#2B84F0",
+     width:200,
+    marginLeft:5,
+    borderRadius:10,
+    
+   },
+   footer:{
+    flex:1,
+    flexDirection:"row",
+    justifyContent:"flex-start",
+    alignItems:'center',
+    
+   }
+    
   
 });

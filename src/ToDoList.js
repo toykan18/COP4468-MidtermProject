@@ -7,12 +7,12 @@ import { StyleSheet, Text, View, FlatList, TouchableHighlight,SafeAreaView,Butto
 
 
 
-export function Home(props) {
+export function ToDoList(props) {
   
 
-    const apiURL = 'https://jsonplaceholder.typicode.com/users';
+    const apiURL = 'https://jsonplaceholder.typicode.com/todos';
 
-    const [userData, setuserData] = useState([]);
+    const [listData, setlistData] = useState([]);
 
     
 
@@ -23,7 +23,7 @@ export function Home(props) {
             .then((res) => res.json())
             .then((data) => {
 
-                setuserData(data);
+                setlistData(data);
                 
 
             })
@@ -34,15 +34,15 @@ export function Home(props) {
     <SafeAreaView style={styles.container}>
       <View style={styles.listContainer}>
        <FlatList
-                  data={userData
+                  data={listData
                     }
                   renderItem={({ item }) => (
                     <>
-                    <TouchableHighlight onPress={()=> props.navigation.navigate("UserDetail", {userid:item.id})}>
+                    
                       <View style={styles.row}>
-                        <Text style={styles.font}>{item.name}</Text>
+                        <Text style={styles.font}>{item.title}</Text>
                       </View>
-                      </TouchableHighlight>
+                     
                       
                     </>
                   )}
