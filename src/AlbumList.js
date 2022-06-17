@@ -55,6 +55,9 @@ export function AlbumList(props) {
                 <View style={styles.buttonContainer}>
                 <Button onPress={()=> props.navigation.navigate("Home")} title="See User List" color={"black"}></Button>
                 </View>
+                <View style={styles.buttonContainer}>
+                <Button onPress={()=> props.navigation.navigate("ToDoList")} title="See ToDo List" color={"black"}></Button>
+                </View>
                 </View>
                 
       <StatusBar style="auto" />
@@ -89,8 +92,8 @@ const styles = StyleSheet.create({
     justifyContent:"center",
      alignItems:"center",
      backgroundColor:"#2B84F0",
-     width:200,
-    marginLeft:5,
+     width:120,
+    marginLeft:13,
     borderRadius:10,
     
    },

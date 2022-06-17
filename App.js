@@ -16,7 +16,7 @@ export default function App(props) {
     <>
       <NavigationContainer>
         <Stack.Navigator
-          initialRouteName="ToDoList"
+          initialRouteName="Home"
           headerMode={{
             headerShown: false,
           }}

@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, View, FlatList, TouchableHighlight,SafeAreaView,Dimensions} from 'react-native';
+import { StyleSheet, Text, View, FlatList, TouchableHighlight,SafeAreaView,Dimensions,Image} from 'react-native';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -31,18 +31,24 @@ export function PhotoList(props) {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
+        
       </View>
       <View style={styles.body}>
-        
-        <Text style={styles.title}>Title:{photoData.title}</Text>
+      <Text style={styles.title}>Title:{photoData.title}</Text>
         <Text>Url:{photoData.url}</Text>
         <Text>thumbnailUrl:{photoData.thumbnailUrl}</Text>
         <Text>ID:{photoData.id}</Text>
         <Text>AlbumID:{photoData.albumId}</Text>
+        <View>
+        <Image style={{ width: 200, height: 200 }} 
+        source={{ uri: `${photoData.url}` }} />
+        </View>
         </View>
         <View style={styles.footer}>
       </View>
 
+        
+        
       <StatusBar style="auto" />
     </SafeAreaView>
   );

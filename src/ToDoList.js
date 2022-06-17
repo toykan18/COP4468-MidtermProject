@@ -45,9 +45,12 @@ export function ToDoList(props) {
                      
                       
                     </>
+                    
                   )}
                   
                 />
+                
+                </View>
                 <View style={styles.footer}>
                 <View style={styles.buttonContainer}>
                 <Button onPress={()=> props.navigation.navigate("PostList")} title="See Post List" color={"black"}></Button>
@@ -55,6 +58,8 @@ export function ToDoList(props) {
                 <View style={styles.buttonContainer}>
                 <Button onPress={()=> props.navigation.navigate("AlbumList")} title="See Album List" color={"black"}></Button>
                 </View>
+                <View style={styles.buttonContainer}>
+                <Button onPress={()=> props.navigation.navigate("Home")} title="See User List" color={"black"}></Button>
                 </View>
                 </View>
       <StatusBar style="auto" />
@@ -73,7 +78,7 @@ const styles = StyleSheet.create({
   listContainer: {
     display:"flex",
     marginTop:30,
-    height:600,
+    height:500,
     width:415,
     
     
@@ -89,8 +94,8 @@ const styles = StyleSheet.create({
   justifyContent:"center",
    alignItems:"center",
    backgroundColor:"#2B84F0",
-   width:200,
-  marginLeft:5,
+   width:120,
+  marginLeft:13,
   borderRadius:10,
   
  },

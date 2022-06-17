@@ -46,6 +46,9 @@ export function PostList(props) {
       <View style={styles.buttonContainer}>
       <Button onPress={()=> props.navigation.navigate("Home")} title="See User List" color={"black"}></Button>
       </View>
+      <View style={styles.buttonContainer}>
+      <Button onPress={()=> props.navigation.navigate("ToDoList")} title="See ToDo List" color={"black"}></Button>
+      </View>
       
       </View>
       </View>
@@ -66,10 +69,8 @@ const styles = StyleSheet.create({
     justifyContent:"center",
     alignItems:"center",
     backgroundColor:"#2B84F0",
-    height:70,
-    width:200,
-    marginTop:50,
-   marginLeft:100,
+    width:120,
+   marginLeft:13,
    borderRadius:10,
    
   },
@@ -88,15 +89,6 @@ const styles = StyleSheet.create({
   
 
   },
-  buttonContainer:{
-    justifyContent:"center",
-     alignItems:"center",
-     backgroundColor:"#2B84F0",
-     width:200,
-    marginLeft:5,
-    borderRadius:10,
-    
-   },
    footer:{
     flex:1,
     flexDirection:"row",
